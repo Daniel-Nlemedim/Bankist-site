@@ -1,6 +1,9 @@
 "use strict";
 
 ///////////////////////////////////////
+
+const footer = document.querySelector('.footer')
+
 // Modal window
 
 const modal = document.querySelector(".modal");
@@ -31,3 +34,10 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+const message = document.createElement("div");
+message.classList.add("cookie-message");
+message.innerHTML =
+  "This website uses cookies to offer you the most relevant information. By continuing to browse the website, you are agreeing to use our site cookies.";
+
+footer.append(message);
