@@ -16,20 +16,29 @@
   <header class="header">
     <nav class="nav">
       <img src="img/logo.png" alt="Bankist logo" class="nav__logo" id="logo" />
-      <ul class="nav__links">
-        <li class="nav__item">
-          <a class="nav__link" href="#section--1">Features</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#section--2">Operations</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link" href="#section--3">Testimonials</a>
-        </li>
-        <li class="nav__item">
-          <a class="nav__link nav__link--btn btn--show-modal" href="#">Open account</a>
-        </li>
-      </ul>
+      <nav class="nav-ham-menu">
+        <div class="ham-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+      <div class="off-screen-menu">
+        <ul class="nav__links ">
+          <li class="nav__item">
+            <a class="nav__link" href="#section--1">Features</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Operations</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--3">Testimonials</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#">Open account</a>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <div class="header__title">
@@ -59,12 +68,13 @@
       <div class="features__feature">
         <div class="features__icon">
           <svg>
-            <use  xlink:href="img/icons.svg#icon-monitor"></use>
+            <use xlink:href="img/icons.svg#icon-monitor"></use>
           </svg>
         </div>
         <h5 class="features__header">100% digital bank</h5>
         <p>
-          With an improved technology, Bankist uses a cutting edge technology to deliver a smooth banking experience like no other. 
+          With an improved technology, Bankist uses a cutting edge technology to deliver a smooth banking experience
+          like no other.
         </p>
       </div>
 
@@ -106,7 +116,8 @@
 
     <div class="operations">
       <div class="operations__tab-container">
-        <button class="btn operations__tab operations__tab--1 operations__tab--active operations_transform" data-tab="1">
+        <button class="btn operations__tab operations__tab--1 operations__tab--active operations_transform"
+          data-tab="1">
           <span>01</span>Instant Transfers
         </button>
         <button class="btn operations__tab operations__tab--2 operations_transform" data-tab="2">
@@ -126,7 +137,9 @@
           Tranfser money to anyone, instantly! No fees, no BS.
         </h5>
         <p>
-          We have an instantaneous transfer of funds between accounts providing users with immediate access to their funds at anytime, from anywhere with an internet connection using a computer or a mobile phone with zero cost. We typically employ robust security measures to safeguard users' financial information and prevent fraud.
+          We have an instantaneous transfer of funds between accounts providing users with immediate access to their
+          funds at anytime, from anywhere with an internet connection using a computer or a mobile phone with zero cost.
+          We typically employ robust security measures to safeguard users' financial information and prevent fraud.
         </p>
       </div>
 
@@ -140,7 +153,8 @@
           Buy a home or make your dreams come true, with instant loans.
         </h5>
         <p>
-          We provide loan services with friendly interest, smooth and easily accessible and you get to choose when to pay back
+          We provide loan services with friendly interest, smooth and easily accessible and you get to choose when to
+          pay back
         </p>
       </div>
       <div class="operations__content operations__content--3">
@@ -153,7 +167,8 @@
           No longer need your account? No problem! Close it instantly.
         </h5>
         <p>
-         Close account at anytime and when convenient for you at the comfort of you home, office , anywhere. But we will always love to have you back anytime.
+          Close account at anytime and when convenient for you at the comfort of you home, office , anywhere. But we
+          will always love to have you back anytime.
         </p>
       </div>
     </div>
@@ -285,16 +300,18 @@
       in just <span class="highlight">5 minutes</span>
     </h2>
     <form class="modal__form">
-      <label >first Name</label>
+      <label>first Name</label>
       <input type="text" placeholder="Firstname" />
       <label>Last Name</label>
       <input type="text" placeholder="Lastname" />
       <label>Email Address</label>
-      <input type="email" placeholder="Enter you email address"/>
+      <input type="email" placeholder="Enter you email address" />
       <button class="btn">Next step &rarr;</button>
     </form>
   </div>
   <div class="overlay hidden"></div>
+
+
 
   <script src="script.js"></script>
 </body>

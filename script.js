@@ -35,6 +35,15 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+//ham-menu
+const hamMenu = document.querySelector('.ham-menu')
+const offScreenMenu = document.querySelector(".off-screen-menu");
+hamMenu.addEventListener('click', function(){
+  hamMenu.classList.toggle('active');
+  offScreenMenu.classList.toggle('active')
+})
+
+
 const message = document.createElement("div");
 message.classList.add("cookie-message");
 message.innerHTML =
