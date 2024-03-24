@@ -2,7 +2,8 @@
 
 ///////////////////////////////////////
 
-const footer = document.querySelector('.footer')
+const footer = document.querySelector(".footer");
+const header = document.querySelector(".header");
 
 // Modal window
 
@@ -36,17 +37,21 @@ document.addEventListener("keydown", function (e) {
 });
 
 //ham-menu
-const hamMenu = document.querySelector('.ham-menu')
+const hamMenu = document.querySelector(".ham-menu");
 const offScreenMenu = document.querySelector(".off-screen-menu");
-hamMenu.addEventListener('click', function(){
-  hamMenu.classList.toggle('active');
-  offScreenMenu.classList.toggle('active')
-})
-
+hamMenu.addEventListener("click", function () {
+  hamMenu.classList.toggle("active");
+  offScreenMenu.classList.toggle("active");
+});
 
 const message = document.createElement("div");
 message.classList.add("cookie-message");
 message.innerHTML =
-  "This website uses cookies to offer you the most relevant information. By continuing to browse the website, you are agreeing to use our site cookies.";
+  "This website uses cookies to offer you the most relevant information.<button class = 'btn btn--close-cookie'>Got it </button>";
 
-footer.append(message);
+header.prepend(message);
+document
+  .querySelector(".btn--close-cookie")
+  .addEventListener("click", function () {
+    message.remove();
+  });

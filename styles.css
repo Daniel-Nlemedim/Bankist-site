@@ -687,7 +687,7 @@ h4 {
   color: #bbb;
   font-size: 1.5rem;
   font-weight: 400;
-  padding-top: 5%;
+  padding-top: 2px;
 }
 
 @media screen and (max-width: 480px) {
@@ -698,21 +698,9 @@ h4 {
     /* overflow-x: hidden; */
   }
 
- :root{
-  color-scheme: light dark;
- }
- body{
-  color: light-dark(black,white);
-  background-color: light-dark(#efedea, #223a2c);
- }
-
- #logo{
-  color:#39b385;
- }
   .nav__logo {
     position: relative;
     right: 25%;
-    
   }
 
   .header {
@@ -849,12 +837,17 @@ h4 {
     transform: translate(-50%, -50%) rotate(-45deg);
   }
 
+  h5 {
+    width: fit-content;
+  }
+
   /* operation */
   .operations {
-    max-width: 100rem;
+    /* max-width: 100rem; */
     margin: 12rem auto 0 auto;
-
+    width: 110%;
     background-color: #fff;
+
   }
 
   .operations__tab-container {
@@ -878,6 +871,8 @@ h4 {
 
   .operations__tab--1 {
     background-color: var(--color-secondary);
+    font-size: 12px;
+    text-align: center;
   }
 
   .operations__tab--1:hover {
@@ -895,6 +890,8 @@ h4 {
 
   .operations__tab--active {
     transform: translateY(-66%);
+    text-align: center;
+   
   }
 
   .operations__content {
@@ -903,6 +900,8 @@ h4 {
     /* JUST PRESENTATIONAL */
     font-size: 1.7rem;
     padding: 2.5rem 7rem 6.5rem 7rem;
+    width: 15rem;
+    /* text-overflow: balance; */
   }
 
   .operations_transform {
@@ -915,15 +914,20 @@ h4 {
 
   .operations__content--active {
     display: grid;
-    grid-template-columns: 7rem 1fr;
-    column-gap: 3rem;
+    grid-template-columns: 80% ;
+    column-gap: 2rem;
     row-gap: 0.5rem;
+    padding-inline-start: 30px;
+    padding-inline-end: 20px;
   }
 
   .operations__header {
-    /* font-size: 2.25rem; */
+    font-size: 2.25rem;
     font-weight: 500;
     align-self: center;
+    width: 25rem;
+    padding: 10px;
+    /* text-wrap: balance; */
   }
 
   .operations__icon {
@@ -942,6 +946,7 @@ h4 {
 
   .operations__content p {
     grid-column: 2;
+    width: 25rem;
   }
 
   .operations__icon--1 {
@@ -962,4 +967,6 @@ h4 {
   .operations__icon--3 svg {
     fill: var(--color-tertiary);
   }
+
+  
 }
