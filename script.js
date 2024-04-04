@@ -48,9 +48,9 @@ btnScrollTo.addEventListener("click", function (e) {
 //////////////////////////////////////////////////
 //page navigation with smooth scroll
 document.querySelector(".nav__links").addEventListener("click", function (e) {
-  e.preventDefault(e);
+  e.preventDefault();
   
-  
+
   if (e.target.classList.contains("nav__link")) {
     const id = e.target.getAttribute("href");
     document.querySelector(id).scrollIntoView({ behavior: "smooth" });
@@ -62,6 +62,7 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 const hamMenu = document.querySelector(".ham-menu");
 const offScreenMenu = document.querySelector(".off-screen-menu");
 hamMenu.addEventListener("click", function () {
+  offScreenMenu.style.transform = 'translateX(-100%)'
   hamMenu.classList.toggle("active");
   offScreenMenu.classList.toggle("active");
 });

@@ -777,9 +777,17 @@ h4 {
     margin-bottom: 1rem;
   }
 
+  .nav__links{
+    display: block;
+    color: black;
+    width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .off-screen-menu {
-    background-color: grey;
-    height: 100%;
+    opacity: 0.7;
+    background-color: white;
+    height: 25%;
     width: 100%;
     max-width: -450px;
     position: fixed;
@@ -847,7 +855,6 @@ h4 {
     margin: 12rem auto 0 auto;
     width: 110%;
     background-color: #fff;
-
   }
 
   .operations__tab-container {
@@ -891,7 +898,6 @@ h4 {
   .operations__tab--active {
     transform: translateY(-66%);
     text-align: center;
-   
   }
 
   .operations__content {
@@ -914,7 +920,7 @@ h4 {
 
   .operations__content--active {
     display: grid;
-    grid-template-columns: 80% ;
+    grid-template-columns: 80%;
     column-gap: 2rem;
     row-gap: 0.5rem;
     padding-inline-start: 30px;
@@ -967,6 +973,4 @@ h4 {
   .operations__icon--3 svg {
     fill: var(--color-tertiary);
   }
-
-  
 }
