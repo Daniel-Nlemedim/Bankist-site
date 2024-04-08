@@ -1,6 +1,10 @@
 "use strict";
 
 ///////////////////////////////////////
+const nav = document.querySelector(".nav");
+const tabs = document.querySelectorAll(".operations__tab"); //tab btn
+const tabsContainers = document.querySelector(".operations__tab-container");
+const tabsContent = document.querySelectorAll(".operations__content");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");
@@ -38,6 +42,50 @@ document.addEventListener("keydown", function (e) {
 });
 
 //////////////////////////////////////////////////////
+//sticky navigation
+const initialCoordinates = section1.getBoundingClientRect();
+
+window.addEventListener("scroll", function () {
+  if (this.window.scrollY > initialCoordinates.top) {
+    nav.classList.add("sticky");
+  } else {
+    nav.classList.remove("sticky");
+  }
+});
+
+//////////////////////////////////////////////////////
+//menu fade anime
+nav.addEventListener("mouseover", function (e) {
+  if (e.target.classList.contains("nav__link")) {
+    const link = e.target;
+    const siblings = link.closest(".nav").querySelectorAll(".nav__link");
+    const logo = link.closest(".nav").querySelector("img");
+
+    siblings.forEach((el) => {
+      if (el !== link) {
+        el.style.opacity = 0.5;
+      }
+      logo.style.opacity = 0.5;
+    });
+  }
+});
+
+nav.addEventListener("mouseout", function (e) {
+  if (e.target.classList.contains("nav__link")) {
+    const link = e.target;
+    const siblings = link.closest(".nav").querySelectorAll(".nav__link");
+    const logo = link.closest(".nav").querySelector("img");
+
+    siblings.forEach((el) => {
+      if (el !== link) {
+        el.style.opacity = 1;
+      }
+      logo.style.opacity = 1;
+    });
+  }
+});
+
+//////////////////////////////////////////////////////
 // smooth scroll
 btnScrollTo.addEventListener("click", function (e) {
   const s1coords = section1.getBoundingClientRect();
@@ -58,10 +106,6 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 
 //////////////////////////////////////////////////////
 //operations components
-const tabs = document.querySelectorAll(".operations__tab"); //tab btn
-const tabsContainers = document.querySelector(".operations__tab-container");
-const tabsContent = document.querySelectorAll(".operations__content");
-
 tabsContainers.addEventListener("click", function (e) {
   const clicked = e.target.closest(".operations__tab"); //to get the closest parentNode
 

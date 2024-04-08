@@ -135,7 +135,8 @@ img {
 /* nav and sticky class at the same time */
 .nav.sticky {
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.363);
 }
 
 .nav__logo {
