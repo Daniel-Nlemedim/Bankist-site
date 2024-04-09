@@ -1,6 +1,7 @@
 "use strict";
 
 ///////////////////////////////////////
+const header = document.querySelector(".header");
 const nav = document.querySelector(".nav");
 const tabs = document.querySelectorAll(".operations__tab"); //tab btn
 const tabsContainers = document.querySelector(".operations__tab-container");
@@ -43,15 +44,35 @@ document.addEventListener("keydown", function (e) {
 
 //////////////////////////////////////////////////////
 //sticky navigation
-const initialCoordinates = section1.getBoundingClientRect();
+// const initialCoordinates = section1.getBoundingClientRect();
 
-window.addEventListener("scroll", function () {
-  if (this.window.scrollY > initialCoordinates.top) {
+// window.addEventListener("scroll", function () {
+//   if (this.window.scrollY > initialCoordinates.top) {
+//     nav.classList.add("sticky");
+//   } else {
+//     nav.classList.remove("sticky");
+//   }
+// });
+
+//////////////////////////////////////////////////////
+//smooth scroll with intersectionAPI
+const navHeight = nav.getBoundingClientRect().height;
+
+const stickyNav = function (entries) {
+  const [entry] = entries; //destructured the entries
+
+  if (!entry.isIntersecting) {
     nav.classList.add("sticky");
   } else {
     nav.classList.remove("sticky");
   }
+};
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`,
 });
+headerObserver.observe(header);
 
 //////////////////////////////////////////////////////
 //menu fade anime
