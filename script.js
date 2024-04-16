@@ -55,7 +55,7 @@ document.addEventListener("keydown", function (e) {
 // });
 
 //////////////////////////////////////////////////////
-//smooth scroll with intersectionAPI
+//sticky navigation  with intersectionAPI
 const navHeight = nav.getBoundingClientRect().height;
 
 const stickyNav = function (entries) {
@@ -67,12 +67,63 @@ const stickyNav = function (entries) {
     nav.classList.remove("sticky");
   }
 };
-const headerObserver = new IntersectionObserver(stickyNav, {
+
+const obsOption = {
   root: null,
   threshold: 0,
   rootMargin: `-${navHeight}px`,
-});
+};
+const headerObserver = new IntersectionObserver(stickyNav, obsOption);
 headerObserver.observe(header);
+
+//////////////////////////////////////////////////////
+//Reveal pages
+const allSections = document.querySelectorAll(".section");
+
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return; //if entry is not intersecting
+
+  entry.target.classList.remove("section--hidden");
+
+  observer.unobserve(entry.target);
+};
+const revealOptions = {
+  root: null,
+  threshold: 0.15,
+};
+const sectionObserver = new IntersectionObserver(revealSection, revealOptions);
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add("section--hidden");
+});
+
+//////////////////////////////////////////////////////
+//lazy loading
+const imgTarget = document.querySelectorAll("img[data-src]");
+
+const loadImg = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+  
+  //replacing src with dataset-src
+  entry.target.src = entry.target.dataset.src;
+
+  entry.target.addEventListener("load", function () {
+    entry.target.classList.remove("lazy-img");
+  });
+
+  observer.unobserve(entry.target);
+};
+const loadOptions = {
+  root: null,
+  threshold: 0,
+};
+const imageObserver = new IntersectionObserver(loadImg, loadOptions);
+
+imgTarget.forEach((img) => imageObserver.observe(img));
 
 //////////////////////////////////////////////////////
 //menu fade anime
@@ -107,7 +158,7 @@ nav.addEventListener("mouseout", function (e) {
 });
 
 //////////////////////////////////////////////////////
-// smooth scroll
+// smooth scroll(learn more)
 btnScrollTo.addEventListener("click", function (e) {
   const s1coords = section1.getBoundingClientRect();
 
@@ -115,7 +166,7 @@ btnScrollTo.addEventListener("click", function (e) {
 });
 
 //////////////////////////////////////////////////
-//page navigation with smooth scroll
+//page navigation with smooth scroll using event delegation
 document.querySelector(".nav__links").addEventListener("click", function (e) {
   e.preventDefault();
 
