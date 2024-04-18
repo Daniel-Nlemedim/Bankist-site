@@ -96,7 +96,7 @@ const revealOptions = {
 const sectionObserver = new IntersectionObserver(revealSection, revealOptions);
 allSections.forEach((section) => {
   sectionObserver.observe(section);
-  section.classList.add("section--hidden");
+  // section.classList.add("section--hidden");
 });
 
 //////////////////////////////////////////////////////
@@ -107,7 +107,7 @@ const loadImg = function (entries, observer) {
   const [entry] = entries;
 
   if (!entry.isIntersecting) return;
-  
+
   //replacing src with dataset-src
   entry.target.src = entry.target.dataset.src;
 
@@ -196,6 +196,42 @@ tabsContainers.addEventListener("click", function (e) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add("operations__content--active");
 });
+
+//////////////////////////////////////////////////////
+//slider component
+const slides = document.querySelectorAll(".slide");
+const slider = document.querySelector(".slider");
+let curSlide = 0;
+const maxSlide = slides.length;
+const btnRight = document.querySelector(".slider__btn--right");
+const btnLeft = document.querySelector(".slider__btn--left");
+
+const goToSlide = function (slide) {
+  slides.forEach((s, i) => {
+    s.style.transform = `translateX(${100 * (i - slide)}%)`;
+  });
+};
+goToSlide(0);
+
+const nextSlide = function () {
+  if (curSlide === maxSlide - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+  goToSlide(curSlide);
+};
+
+const prevSlide = function () {
+  if (curSlide === 0) {
+    curSlide = maxSlide - 1;
+  } else {
+    curSlide--;
+  }
+  goToSlide(curSlide);
+};
+btnRight.addEventListener('click', nextSlide);
+btnLeft.addEventListener('click', prevSlide)
 
 //////////////////////////////////////////////////////
 //sidebar
