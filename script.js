@@ -63,8 +63,12 @@ const stickyNav = function (entries) {
 
   if (!entry.isIntersecting) {
     nav.classList.add("sticky");
+
+    nav.style.filter = "invert(80%)"; //invert background of nav when sticky
   } else {
     nav.classList.remove("sticky");
+
+    nav.style.filter = "invert(0%)"; //remove inverted color when not sticky
   }
 };
 
@@ -158,7 +162,7 @@ nav.addEventListener("mouseout", function (e) {
 });
 
 //////////////////////////////////////////////////////
-// smooth scroll(learn more)
+// smooth scroll(learn more arrow)
 btnScrollTo.addEventListener("click", function (e) {
   const s1coords = section1.getBoundingClientRect();
 
