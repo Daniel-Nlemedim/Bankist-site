@@ -64,7 +64,7 @@ const stickyNav = function (entries) {
   if (!entry.isIntersecting) {
     nav.classList.add("sticky");
 
-    nav.style.filter = "invert(80%)"; //invert background of nav when sticky
+    // nav.style.filter = "invert(80%)"; //invert background of nav when sticky
   } else {
     nav.classList.remove("sticky");
 

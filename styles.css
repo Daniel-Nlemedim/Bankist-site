@@ -481,7 +481,7 @@ h4 {
   width: 65%;
   position: relative;
 }
-
+/* creating the two stroke at the top of the testimonial content */
 .testimonial::before {
   content: "\201C";
   position: absolute;
